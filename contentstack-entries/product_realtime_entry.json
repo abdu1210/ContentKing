@@ -1,0 +1,14 @@
+{
+  "title": "Real-time Data and Insights Product",
+  "uid": "product_realtime",
+  "product_title": "Real-time Data and Insights",
+  "product_description": "Unify customer data from multiple sources with real-time activation and insights.",
+  "product_icon": "Zap",
+  "product_features": "Identity Resolution\nAdvanced Segmentation\nPredictive Analytics\nData Unification",
+  "product_order": 2,
+  "locale": "en-us",
+  "tags": ["product", "features", "data"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

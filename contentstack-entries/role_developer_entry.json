@@ -1,0 +1,14 @@
+{
+  "title": "Developer & IT Role",
+  "uid": "role_developer",
+  "role_title": "Developer & IT",
+  "role_description": "API-first architecture with developer-friendly tools and extensive documentation",
+  "role_icon": "Code",
+  "role_benefits": "GraphQL & REST APIs\nSDK Support\nHeadless Architecture\nDevOps Integration",
+  "role_order": 1,
+  "locale": "en-us",
+  "tags": ["role", "features", "developer"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

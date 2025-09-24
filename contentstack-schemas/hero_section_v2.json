@@ -1,0 +1,150 @@
+{
+  "title": "Hero Section V2",
+  "uid": "hero_section_v2",
+  "description": "Hero sections with layout style support for different page designs",
+  "schema": [
+    {
+      "display_name": "Hero Title",
+      "uid": "hero_title",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Main headline for the hero section",
+        "default_value": ""
+      },
+      "mandatory": true,
+      "unique": false
+    },
+    {
+      "display_name": "Hero Subtitle",
+      "uid": "hero_subtitle", 
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Optional subtitle text",
+        "default_value": ""
+      },
+      "mandatory": false,
+      "unique": false
+    },
+    {
+      "display_name": "Hero Description",
+      "uid": "hero_description",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Hero description text",
+        "multiline": true
+      },
+      "mandatory": true,
+      "unique": false
+    },
+    {
+      "display_name": "Page Slug",
+      "uid": "page_slug",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Page identifier (home, features, about, etc.)"
+      },
+      "mandatory": true,
+      "unique": true
+    },
+    {
+      "display_name": "Hero Image",
+      "uid": "hero_image",
+      "data_type": "file",
+      "field_metadata": {
+        "description": "Optional hero image (used in two_column layout)",
+        "rich_text_type": "standard"
+      },
+      "mandatory": false,
+      "unique": false
+    },
+    {
+      "display_name": "Primary CTA",
+      "uid": "primary_cta",
+      "data_type": "group",
+      "field_metadata": {
+        "description": "Primary call-to-action button"
+      },
+      "schema": [
+        {
+          "display_name": "Text",
+          "uid": "text",
+          "data_type": "text",
+          "mandatory": true
+        },
+        {
+          "display_name": "URL",
+          "uid": "url",
+          "data_type": "text",
+          "mandatory": true
+        },
+        {
+          "display_name": "Is External",
+          "uid": "is_external",
+          "data_type": "boolean",
+          "mandatory": false
+        }
+      ],
+      "mandatory": true,
+      "unique": false
+    },
+    {
+      "display_name": "Secondary CTA",
+      "uid": "secondary_cta",
+      "data_type": "group",
+      "field_metadata": {
+        "description": "Optional secondary call-to-action button"
+      },
+      "schema": [
+        {
+          "display_name": "Text",
+          "uid": "text",
+          "data_type": "text",
+          "mandatory": false
+        },
+        {
+          "display_name": "URL",
+          "uid": "url",
+          "data_type": "text",
+          "mandatory": false
+        },
+        {
+          "display_name": "Is External",
+          "uid": "is_external",
+          "data_type": "boolean",
+          "mandatory": false
+        }
+      ],
+      "mandatory": false,
+      "unique": false
+    },
+    {
+      "display_name": "Background Style",
+      "uid": "background_style",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Hero background styling (gradient_primary, gradient_secondary, or solid_background)",
+        "default_value": "gradient_primary"
+      },
+      "mandatory": false,
+      "unique": false
+    },
+    {
+      "display_name": "Layout Style",
+      "uid": "layout_style",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Hero layout type (two_column for Home with image, centered_text for Features text-only)",
+        "default_value": "two_column"
+      },
+      "mandatory": false,
+      "unique": false
+    }
+  ],
+  "options": {
+    "is_page": false,
+    "singleton": false,
+    "title": "hero_title",
+    "sub_title": ["page_slug"],
+    "url": "page_slug"
+  }
+}

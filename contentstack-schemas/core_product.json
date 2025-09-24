@@ -1,0 +1,77 @@
+{
+  "title": "Core Product",
+    "uid": "core_product",
+    "description": "Detailed core products for Features page",
+    "schema": [
+      {
+        "display_name": "Product Title",
+        "uid": "product_title",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Core product name"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Product Description",
+        "uid": "product_description",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Product description",
+          "multiline": true
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Product Icon",
+        "uid": "product_icon",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Lucide icon name (Database, Zap, Brain, Users, Server, Globe, Shield, Code)",
+          "default_value": "Database"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Product Features",
+        "uid": "product_features",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Product features list (one per line)",
+          "multiline": true
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Product Order",
+        "uid": "product_order",
+        "data_type": "number",
+        "field_metadata": {
+          "description": "Display order (1, 2, 3, etc.)"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Product URL",
+        "uid": "product_url",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Link to product details page"
+        },
+        "mandatory": false,
+        "unique": false
+      }
+    ],
+    "options": {
+      "is_page": false,
+      "singleton": false,
+      "title": "product_title",
+      "sub_title": ["product_order"],
+      "url": "product_url"
+    }
+}

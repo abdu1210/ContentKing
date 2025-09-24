@@ -1,0 +1,15 @@
+{
+  "title": "Faster Content Publishing Stat",
+  "uid": "stat_faster_publishing",
+  "stat_label": "Faster content publishing",
+  "stat_value": "80",
+  "stat_suffix": "%",
+  "stat_description": "Faster content publishing",
+  "stat_order": 1,
+  "stat_category": "features_benefits",
+  "locale": "en-us",
+  "tags": ["stat", "features", "publishing"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

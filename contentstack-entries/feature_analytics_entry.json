@@ -1,0 +1,14 @@
+{
+  "title": "Analytics & Insights Feature",
+  "uid": "feature_analytics",
+  "feature_title": "Analytics & Insights",
+  "feature_description": "Deep insights into content performance with built-in analytics and custom reporting.",
+  "feature_icon": "BarChart3",
+  "feature_order": 6,
+  "feature_category": "home_features",
+  "locale": "en-us",
+  "tags": ["feature", "home", "analytics"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

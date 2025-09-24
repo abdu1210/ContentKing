@@ -1,0 +1,15 @@
+{
+  "title": "API Uptime Stat",
+  "uid": "stat_uptime",
+  "stat_label": "API Uptime",
+  "stat_value": "99.90",
+  "stat_suffix": "%",
+  "stat_description": "Enterprise-grade reliability you can trust",
+  "stat_order": 1,
+  "stat_category": "home_stats",
+  "locale": "en-us",
+  "tags": ["stat", "home", "uptime"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

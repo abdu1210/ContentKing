@@ -1,0 +1,14 @@
+{
+  "title": "Business Users Role",
+  "uid": "role_business",
+  "role_title": "Business Users",
+  "role_description": "Intuitive interface for content creators and marketers to work efficiently",
+  "role_icon": "Users",
+  "role_benefits": "Visual Editor\nCollaboration Tools\nContent Scheduling\nPreview & Publish",
+  "role_order": 2,
+  "locale": "en-us",
+  "tags": ["role", "features", "business"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

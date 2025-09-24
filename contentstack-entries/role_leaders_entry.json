@@ -1,0 +1,14 @@
+{
+  "title": "Digital Leaders Role",
+  "uid": "role_leaders",
+  "role_title": "Digital Leaders",
+  "role_description": "Strategic insights and governance tools for enterprise-scale content operations",
+  "role_icon": "Brain",
+  "role_benefits": "Analytics Dashboard\nPerformance Metrics\nROI Tracking\nCompliance Tools",
+  "role_order": 3,
+  "locale": "en-us",
+  "tags": ["role", "features", "leadership"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "title": "Features Hero Section V2",
+  "uid": "hero_features_v2",
+  "hero_title": "Powerful Features for Modern Content Teams",
+  "hero_subtitle": "",
+  "hero_description": "Everything you need to create, manage, and deliver content across any platform with unmatched speed and flexibility.",
+  "page_slug": "features",
+  "primary_cta": {
+    "text": "Start Free Trial",
+    "url": "/signup",
+    "is_external": false
+  },
+  "secondary_cta": {
+    "text": "View Demo",
+    "url": "/demo",
+    "is_external": false
+  },
+  "background_style": "gradient_primary",
+  "layout_style": "centered_text",
+  "locale": "en-us",
+  "tags": ["features", "hero"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

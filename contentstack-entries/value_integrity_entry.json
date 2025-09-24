@@ -1,0 +1,13 @@
+{
+  "title": "Anchored in Integrity Value",
+  "uid": "value_integrity",
+  "value_title": "Anchored in Integrity",
+  "value_description": "We do what we say and say what we do. Transparency and trust are our foundations.",
+  "value_icon": "Shield",
+  "value_order": 3,
+  "locale": "en-us",
+  "tags": ["value", "about", "integrity"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

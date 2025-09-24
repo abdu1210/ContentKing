@@ -1,0 +1,25 @@
+{
+  "title": "Home Hero Section V2",
+  "uid": "hero_home_v2",
+  "hero_title": "Build Digital Experiences That Scale Infinitely",
+  "hero_subtitle": "The Future of Content Management",
+  "hero_description": "The headless CMS that empowers teams to create, manage, and deliver content across any platform with unmatched speed and flexibility. Transform your digital presence today.",
+  "page_slug": "home",
+  "primary_cta": {
+    "text": "Start Free Trial",
+    "url": "/signup",
+    "is_external": false
+  },
+  "secondary_cta": {
+    "text": "Watch Demo",
+    "url": "https://www.youtube.com/watch?v=demo",
+    "is_external": true
+  },
+  "background_style": "gradient_primary",
+  "layout_style": "two_column",
+  "locale": "en-us",
+  "tags": ["home", "hero"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

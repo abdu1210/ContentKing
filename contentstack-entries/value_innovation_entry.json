@@ -1,0 +1,13 @@
+{
+  "title": "Sparking Innovation Value",
+  "uid": "value_innovation",
+  "value_title": "Sparking Innovation",
+  "value_description": "We ignite new ideas and fuel creative solutions that push boundaries.",
+  "value_icon": "Sparkles",
+  "value_order": 6,
+  "locale": "en-us",
+  "tags": ["value", "about", "innovation"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

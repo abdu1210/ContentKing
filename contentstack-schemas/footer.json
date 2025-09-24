@@ -1,0 +1,161 @@
+{
+  "title": "Footer",
+    "uid": "footer",
+    "description": "Site footer with links and information",
+    "schema": [
+      {
+        "display_name": "Footer Sections",
+        "uid": "footer_sections",
+        "data_type": "group",
+        "field_metadata": {
+          "description": "Footer content sections"
+        },
+        "schema": [
+          {
+            "display_name": "Company Section",
+            "uid": "company_section",
+            "data_type": "group",
+            "schema": [
+              {
+                "display_name": "Title",
+                "uid": "title",
+                "data_type": "text",
+                "mandatory": true
+              },
+              {
+                "display_name": "Links",
+                "uid": "links",
+                "data_type": "group",
+                "multiple": true,
+                "schema": [
+                  {
+                    "display_name": "Label",
+                    "uid": "label",
+                    "data_type": "text",
+                    "mandatory": true
+                  },
+                  {
+                    "display_name": "URL",
+                    "uid": "url",
+                    "data_type": "text",
+                    "mandatory": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Products Section",
+            "uid": "products_section",
+            "data_type": "group",
+            "schema": [
+              {
+                "display_name": "Title",
+                "uid": "title",
+                "data_type": "text",
+                "mandatory": true
+              },
+              {
+                "display_name": "Links",
+                "uid": "links",
+                "data_type": "group",
+                "multiple": true,
+                "schema": [
+                  {
+                    "display_name": "Label",
+                    "uid": "label",
+                    "data_type": "text",
+                    "mandatory": true
+                  },
+                  {
+                    "display_name": "URL",
+                    "uid": "url",
+                    "data_type": "text",
+                    "mandatory": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Resources Section",
+            "uid": "resources_section",
+            "data_type": "group",
+            "schema": [
+              {
+                "display_name": "Title",
+                "uid": "title",
+                "data_type": "text",
+                "mandatory": true
+              },
+              {
+                "display_name": "Links",
+                "uid": "links",
+                "data_type": "group",
+                "multiple": true,
+                "schema": [
+                  {
+                    "display_name": "Label",
+                    "uid": "label",
+                    "data_type": "text",
+                    "mandatory": true
+                  },
+                  {
+                    "display_name": "URL",
+                    "uid": "url",
+                    "data_type": "text",
+                    "mandatory": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Footer Bottom",
+        "uid": "footer_bottom",
+        "data_type": "group",
+        "field_metadata": {
+          "description": "Footer bottom section with copyright and legal links"
+        },
+        "schema": [
+          {
+            "display_name": "Copyright Text",
+            "uid": "copyright_text",
+            "data_type": "text",
+            "mandatory": true
+          },
+          {
+            "display_name": "Legal Links",
+            "uid": "legal_links",
+            "data_type": "group",
+            "multiple": true,
+            "schema": [
+              {
+                "display_name": "Label",
+                "uid": "label",
+                "data_type": "text",
+                "mandatory": true
+              },
+              {
+                "display_name": "URL",
+                "uid": "url",
+                "data_type": "text",
+                "mandatory": true
+              }
+            ]
+          }
+        ],
+        "mandatory": true,
+        "unique": false
+      }
+    ],
+    "options": {
+      "is_page": false,
+      "singleton": true,
+      "title": "Footer"
+    }
+}

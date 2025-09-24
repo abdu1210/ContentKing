@@ -1,0 +1,25 @@
+{
+  "title": "About Hero Section V2",
+  "uid": "hero_about_v2",
+  "hero_title": "Building the Future of Content Management",
+  "hero_subtitle": "Our Story & Mission",
+  "hero_description": "We're passionate about empowering teams to create, manage, and deliver exceptional digital experiences. Learn about our journey and the people behind the platform.",
+  "page_slug": "about",
+  "primary_cta": {
+    "text": "Join Our Team",
+    "url": "/careers",
+    "is_external": false
+  },
+  "secondary_cta": {
+    "text": "Our Story",
+    "url": "#story",
+    "is_external": false
+  },
+  "background_style": "gradient_secondary",
+  "layout_style": "centered_text",
+  "locale": "en-us",
+  "tags": ["about", "hero"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

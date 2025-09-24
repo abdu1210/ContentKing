@@ -1,0 +1,20 @@
+{
+  "title": "Product Manager - Platform",
+  "uid": "job_product_manager",
+  "job_title": "Product Manager",
+  "department": "Product",
+  "location": "Austin, TX / Remote",
+  "job_type": "Full-time",
+  "experience_level": "Mid to Senior",
+  "job_description": "Drive product strategy and roadmap for our content management platform. Work closely with engineering, design, and customer success teams to deliver features that delight our users. You'll own the product lifecycle from conception to launch, conducting user research and analyzing data to make informed decisions.",
+  "requirements": "3+ years product management experience, SaaS platform experience, User research and analytics skills, Excellent communication abilities, Agile/Scrum methodology knowledge, Technical background preferred",
+  "benefits": "Competitive salary, Equity package, Health/dental/vision insurance, Flexible PTO, Professional development opportunities, Conference attendance budget",
+  "salary_range": "$110k - $140k",
+  "application_url": "/apply/product-manager",
+  "job_order": 2,
+  "locale": "en-us",
+  "tags": ["product", "management", "strategy"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

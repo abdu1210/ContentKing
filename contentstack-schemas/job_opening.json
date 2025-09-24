@@ -1,0 +1,129 @@
+{
+  "title": "Job Opening",
+  "uid": "job_opening",
+  "description": "Individual job positions available at the company",
+  "schema": [
+    {
+      "display_name": "Job Title",
+      "uid": "job_title",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "The title of the job position"
+      },
+      "mandatory": true,
+      "unique": false
+    },
+    {
+      "display_name": "Department",
+      "uid": "department",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Department or team (Engineering, Marketing, Sales, etc.)"
+      },
+      "mandatory": true,
+      "unique": false
+    },
+    {
+      "display_name": "Location",
+      "uid": "location",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Job location (Remote, Austin TX, Mumbai India, etc.)"
+      },
+      "mandatory": true,
+      "unique": false
+    },
+    {
+      "display_name": "Job Type",
+      "uid": "job_type",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Employment type (Full-time, Part-time, Contract, Internship)",
+        "default_value": "Full-time"
+      },
+      "mandatory": true,
+      "unique": false
+    },
+    {
+      "display_name": "Experience Level",
+      "uid": "experience_level",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Required experience (Entry, Mid, Senior, Lead, Executive)",
+        "default_value": "Mid"
+      },
+      "mandatory": true,
+      "unique": false
+    },
+    {
+      "display_name": "Job Description",
+      "uid": "job_description",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Detailed job description and responsibilities",
+        "multiline": true
+      },
+      "mandatory": true,
+      "unique": false
+    },
+    {
+      "display_name": "Requirements",
+      "uid": "requirements",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Required skills and qualifications (comma-separated)",
+        "multiline": true
+      },
+      "mandatory": true,
+      "unique": false
+    },
+    {
+      "display_name": "Benefits",
+      "uid": "benefits",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Job benefits and perks (comma-separated)",
+        "multiline": true
+      },
+      "mandatory": false,
+      "unique": false
+    },
+    {
+      "display_name": "Salary Range",
+      "uid": "salary_range",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "Salary range (optional, e.g., '$80k - $120k')"
+      },
+      "mandatory": false,
+      "unique": false
+    },
+    {
+      "display_name": "Application URL",
+      "uid": "application_url",
+      "data_type": "text",
+      "field_metadata": {
+        "description": "URL to apply for this position"
+      },
+      "mandatory": false,
+      "unique": false
+    },
+    {
+      "display_name": "Job Order",
+      "uid": "job_order",
+      "data_type": "number",
+      "field_metadata": {
+        "description": "Display order for job listings"
+      },
+      "mandatory": false,
+      "unique": false
+    }
+  ],
+  "options": {
+    "is_page": false,
+    "singleton": false,
+    "title": "job_title",
+    "sub_title": ["department", "location"],
+    "url": "job_title"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "title": "Feature Card",
+    "uid": "feature_card",
+    "description": "Individual feature cards for home page and feature grids",
+    "schema": [
+      {
+        "display_name": "Feature Title",
+        "uid": "feature_title",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Feature name/title"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Feature Description",
+        "uid": "feature_description",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Feature description",
+          "multiline": true
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Feature Icon",
+        "uid": "feature_icon",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Lucide icon name (Zap, Shield, Globe, Code, Users, BarChart3, Database, Brain, Server, Settings, Lock, Rocket)",
+          "default_value": "Zap"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Feature Order",
+        "uid": "feature_order",
+        "data_type": "number",
+        "field_metadata": {
+          "description": "Order for displaying features (1, 2, 3, etc.)"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Feature Category",
+        "uid": "feature_category",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Category (home_features, core_products, additional_features)",
+          "default_value": "home_features"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Feature URL",
+        "uid": "feature_url",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Optional link for more details about this feature"
+        },
+        "mandatory": false,
+        "unique": false
+      }
+    ],
+    "options": {
+      "is_page": false,
+      "singleton": false,
+      "title": "feature_title",
+      "sub_title": ["feature_category"],
+      "url": "feature_url"
+    }
+}

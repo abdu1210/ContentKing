@@ -1,0 +1,14 @@
+{
+  "title": "Lightning Fast Feature",
+  "uid": "feature_lightning",
+  "feature_title": "Lightning Fast",
+  "feature_description": "Deliver content at blazing speeds with our global CDN and optimized API endpoints.",
+  "feature_icon": "Zap",
+  "feature_order": 1,
+  "feature_category": "home_features",
+  "locale": "en-us",
+  "tags": ["feature", "home", "performance"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

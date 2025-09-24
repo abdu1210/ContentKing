@@ -1,0 +1,25 @@
+{
+  "title": "Careers Hero Section V2",
+  "uid": "hero_careers_v2",
+  "hero_title": "Join Our Mission to Transform Content",
+  "hero_subtitle": "Build the Future with Us",
+  "hero_description": "Be part of a team that's revolutionizing how the world's best brands create and manage digital experiences. Explore opportunities to grow your career while making a meaningful impact.",
+  "page_slug": "careers",
+  "primary_cta": {
+    "text": "View Open Positions",
+    "url": "#open-positions",
+    "is_external": false
+  },
+  "secondary_cta": {
+    "text": "Learn Our Culture",
+    "url": "/about",
+    "is_external": false
+  },
+  "background_style": "gradient_primary",
+  "layout_style": "centered_text",
+  "locale": "en-us",
+  "tags": ["careers", "hero", "jobs"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

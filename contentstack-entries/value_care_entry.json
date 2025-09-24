@@ -1,0 +1,13 @@
+{
+  "title": "Grounded in Care Value",
+  "uid": "value_care",
+  "value_title": "Grounded in Care",
+  "value_description": "We care deeply about each other, our customers and our communities.",
+  "value_icon": "Heart",
+  "value_order": 2,
+  "locale": "en-us",
+  "tags": ["value", "about", "care"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

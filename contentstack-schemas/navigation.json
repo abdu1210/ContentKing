@@ -1,0 +1,147 @@
+{
+  "title": "Navigation",
+    "uid": "navigation",
+    "description": "Site navigation menu structure",
+    "schema": [
+      {
+        "display_name": "Navigation Name",
+        "uid": "navigation_name",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Name of this navigation (e.g., 'Main Navigation')"
+        },
+        "mandatory": true,
+        "unique": true
+      },
+      {
+        "display_name": "Navigation Items",
+        "uid": "navigation_items",
+        "data_type": "blocks",
+        "field_metadata": {
+          "description": "Navigation menu items"
+        },
+        "blocks": [
+          {
+            "title": "Simple Link",
+            "uid": "simple_link",
+            "schema": [
+              {
+                "display_name": "Label",
+                "uid": "label",
+                "data_type": "text",
+                "mandatory": true
+              },
+              {
+                "display_name": "URL",
+                "uid": "url",
+                "data_type": "text",
+                "mandatory": true
+              },
+              {
+                "display_name": "Is External",
+                "uid": "is_external",
+                "data_type": "boolean",
+                "mandatory": false
+              }
+            ]
+          },
+          {
+            "title": "Dropdown Menu",
+            "uid": "dropdown_menu",
+            "schema": [
+              {
+                "display_name": "Label",
+                "uid": "label",
+                "data_type": "text",
+                "mandatory": true
+              },
+              {
+                "display_name": "Dropdown Items",
+                "uid": "dropdown_items",
+                "data_type": "group",
+                "multiple": true,
+                "schema": [
+                  {
+                    "display_name": "Label",
+                    "uid": "label",
+                    "data_type": "text",
+                    "mandatory": true
+                  },
+                  {
+                    "display_name": "URL",
+                    "uid": "url",
+                    "data_type": "text",
+                    "mandatory": true
+                  },
+                  {
+                    "display_name": "Description",
+                    "uid": "description",
+                    "data_type": "text",
+                    "mandatory": false
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "mandatory": true,
+        "unique": false,
+        "multiple": true
+      },
+      {
+        "display_name": "CTA Buttons",
+        "uid": "cta_buttons",
+        "data_type": "group",
+        "field_metadata": {
+          "description": "Call-to-action buttons in navigation"
+        },
+        "schema": [
+          {
+            "display_name": "Primary CTA",
+            "uid": "primary_cta",
+            "data_type": "group",
+            "schema": [
+              {
+                "display_name": "Text",
+                "uid": "text",
+                "data_type": "text",
+                "mandatory": true
+              },
+              {
+                "display_name": "URL",
+                "uid": "url",
+                "data_type": "text",
+                "mandatory": true
+              }
+            ]
+          },
+          {
+            "display_name": "Secondary CTA",
+            "uid": "secondary_cta",
+            "data_type": "group",
+            "schema": [
+              {
+                "display_name": "Text",
+                "uid": "text",
+                "data_type": "text",
+                "mandatory": false
+              },
+              {
+                "display_name": "URL",
+                "uid": "url",
+                "data_type": "text",
+                "mandatory": false
+              }
+            ]
+          }
+        ],
+        "mandatory": false,
+        "unique": false
+      }
+    ],
+    "options": {
+      "is_page": false,
+      "singleton": true,
+      "title": "navigation_name"
+    }
+}

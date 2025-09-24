@@ -1,0 +1,13 @@
+{
+  "title": "Driven by Curiosity Value",
+  "uid": "value_curiosity",
+  "value_title": "Driven by Curiosity",
+  "value_description": "We ask questions, challenge assumptions, and never stop learning.",
+  "value_icon": "Lightbulb",
+  "value_order": 4,
+  "locale": "en-us",
+  "tags": ["value", "about", "curiosity"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

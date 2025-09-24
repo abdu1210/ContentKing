@@ -1,0 +1,15 @@
+{
+  "title": "Platform Uptime Stat",
+  "uid": "stat_platform_uptime",
+  "stat_label": "Platform uptime",
+  "stat_value": "99.9",
+  "stat_suffix": "%",
+  "stat_description": "Platform uptime",
+  "stat_order": 4,
+  "stat_category": "features_benefits",
+  "locale": "en-us",
+  "tags": ["stat", "features", "uptime"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

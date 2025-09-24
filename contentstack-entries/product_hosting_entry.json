@@ -1,0 +1,14 @@
+{
+  "title": "Front-end Hosting Product",
+  "uid": "product_hosting",
+  "product_title": "Front-end Hosting",
+  "product_description": "Fully integrated, automated, MACH-compliant hosting that works for you.",
+  "product_icon": "Server",
+  "product_features": "Instant Deployments\nGlobal CDN\nEdge Functions\nAuto Scaling",
+  "product_order": 5,
+  "locale": "en-us",
+  "tags": ["product", "features", "hosting"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

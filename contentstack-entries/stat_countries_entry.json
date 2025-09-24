@@ -1,0 +1,15 @@
+{
+  "title": "Countries Served Stat",
+  "uid": "stat_countries",
+  "stat_label": "Countries Served",
+  "stat_value": "500",
+  "stat_suffix": "+",
+  "stat_description": "Global reach with local performance",
+  "stat_order": 3,
+  "stat_category": "home_stats",
+  "locale": "en-us",
+  "tags": ["stat", "home", "countries"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

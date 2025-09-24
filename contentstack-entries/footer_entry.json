@@ -1,0 +1,91 @@
+{
+  "title": "Main Footer",
+  "uid": "main_footer",
+  "footer_sections": {
+    "company_section": {
+      "title": "Company",
+      "links": [
+        {
+          "label": "About",
+          "url": "/about"
+        },
+        {
+          "label": "Careers",
+          "url": "/careers"
+        },
+        {
+          "label": "Awards",
+          "url": "/awards"
+        },
+        {
+          "label": "Contact",
+          "url": "/contact"
+        }
+      ]
+    },
+    "products_section": {
+      "title": "Products",
+      "links": [
+        {
+          "label": "CMS",
+          "url": "/cms"
+        },
+        {
+          "label": "Features",
+          "url": "/features"
+        },
+        {
+          "label": "Pricing",
+          "url": "/pricing"
+        },
+        {
+          "label": "Enterprise",
+          "url": "/enterprise"
+        }
+      ]
+    },
+    "resources_section": {
+      "title": "Resources",
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "/docs"
+        },
+        {
+          "label": "Blog",
+          "url": "/blog"
+        },
+        {
+          "label": "Support",
+          "url": "/support"
+        },
+        {
+          "label": "Community",
+          "url": "/community"
+        }
+      ]
+    }
+  },
+  "footer_bottom": {
+    "copyright_text": "© 2024 Content King. All rights reserved.",
+    "legal_links": [
+      {
+        "label": "Privacy Policy",
+        "url": "/privacy"
+      },
+      {
+        "label": "Terms of Service",
+        "url": "/terms"
+      },
+      {
+        "label": "Cookie Policy",
+        "url": "/cookies"
+      }
+    ]
+  },
+  "locale": "en-us",
+  "tags": ["footer", "global"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

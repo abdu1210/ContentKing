@@ -1,0 +1,98 @@
+{
+  "title": "Team Member",
+    "uid": "team_member",
+    "description": "Team members for About page leadership section",
+    "schema": [
+      {
+        "display_name": "Member Name",
+        "uid": "member_name",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Full name of the team member"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Member Role",
+        "uid": "member_role",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Job title/role (e.g., CEO, CTO)"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Member Department",
+        "uid": "member_department",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Department (e.g., Leadership, Technology)"
+        },
+        "mandatory": false,
+        "unique": false
+      },
+      {
+        "display_name": "Member Bio",
+        "uid": "member_bio",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Brief biography",
+          "multiline": true
+        },
+        "mandatory": false,
+        "unique": false
+      },
+      {
+        "display_name": "Member Photo",
+        "uid": "member_photo",
+        "data_type": "file",
+        "field_metadata": {
+          "description": "Team member headshot photo"
+        },
+        "mandatory": false,
+        "unique": false
+      },
+      {
+        "display_name": "Member Order",
+        "uid": "member_order",
+        "data_type": "number",
+        "field_metadata": {
+          "description": "Display order for team listing"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Social Links",
+        "uid": "social_links",
+        "data_type": "group",
+        "field_metadata": {
+          "description": "Social media links for the member"
+        },
+        "schema": [
+          {
+            "display_name": "LinkedIn URL",
+            "uid": "linkedin_url",
+            "data_type": "text",
+            "mandatory": false
+          },
+          {
+            "display_name": "Twitter URL",
+            "uid": "twitter_url",
+            "data_type": "text",
+            "mandatory": false
+          }
+        ],
+        "mandatory": false,
+        "unique": false
+      }
+    ],
+    "options": {
+      "is_page": false,
+      "singleton": false,
+      "title": "member_name",
+      "sub_title": ["member_role"]
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Headless Content Management Product",
+  "uid": "product_headless",
+  "product_title": "Headless Content Management",
+  "product_description": "API-first content management that's flexible, scalable, and native to the cloud.",
+  "product_icon": "Database",
+  "product_features": "Visual Builder\nTimeline Management\nModular Blocks\nWorkflows",
+  "product_order": 1,
+  "locale": "en-us",
+  "tags": ["product", "features", "cms"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

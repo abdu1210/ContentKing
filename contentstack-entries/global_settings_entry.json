@@ -1,0 +1,17 @@
+{
+  "title": "Global Settings",
+  "uid": "global_settings_main",
+  "site_title": "Content King",
+  "site_tagline": "The Future of Content Management",
+  "contact_email": "hello@contentking.com",
+  "social_links": {
+    "twitter_url": "https://twitter.com/contentking",
+    "linkedin_url": "https://linkedin.com/company/contentking",
+    "github_url": "https://github.com/contentking"
+  },
+  "locale": "en-us",
+  "tags": ["global", "settings"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "title": "Value Card",
+    "uid": "value_card",
+    "description": "Company values for About page",
+    "schema": [
+      {
+        "display_name": "Value Title",
+        "uid": "value_title",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Value name (e.g., A Connected Tribe)"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Value Description",
+        "uid": "value_description",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Value description",
+          "multiline": true
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Value Icon",
+        "uid": "value_icon",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Lucide icon name (Users, Heart, Shield, Lightbulb, Search, Sparkles, Target, Rocket)",
+          "default_value": "Users"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Value Order",
+        "uid": "value_order",
+        "data_type": "number",
+        "field_metadata": {
+          "description": "Display order (1, 2, 3, etc.)"
+        },
+        "mandatory": true,
+        "unique": false
+      }
+    ],
+    "options": {
+      "is_page": false,
+      "singleton": false,
+      "title": "value_title",
+      "sub_title": ["value_order"]
+    }
+}

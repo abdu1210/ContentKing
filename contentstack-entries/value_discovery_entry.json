@@ -1,0 +1,13 @@
+{
+  "title": "Embracing Discovery Value",
+  "uid": "value_discovery",
+  "value_title": "Embracing Discovery",
+  "value_description": "We embrace the unknown and find opportunity in uncertainty.",
+  "value_icon": "Search",
+  "value_order": 5,
+  "locale": "en-us",
+  "tags": ["value", "about", "discovery"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

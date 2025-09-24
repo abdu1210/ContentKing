@@ -1,0 +1,15 @@
+{
+  "title": "Faster Time to Publish Stat",
+  "uid": "stat_time_to_publish",
+  "stat_label": "Faster time to publish",
+  "stat_value": "90",
+  "stat_suffix": "%",
+  "stat_description": "Faster time to publish",
+  "stat_order": 2,
+  "stat_category": "features_benefits",
+  "locale": "en-us",
+  "tags": ["stat", "features", "time"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

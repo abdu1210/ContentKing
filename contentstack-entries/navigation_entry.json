@@ -1,0 +1,65 @@
+{
+  "title": "Main Navigation",
+  "uid": "main_navigation",
+  "navigation_name": "Main Navigation",
+  "navigation_items": [
+    {
+      "simple_link": {
+        "label": "Features",
+        "url": "/features",
+        "is_external": false
+      }
+    },
+    {
+      "simple_link": {
+        "label": "Pricing",
+        "url": "/pricing",
+        "is_external": false
+      }
+    },
+    {
+      "dropdown_menu": {
+        "label": "Company",
+        "dropdown_items": [
+          {
+            "label": "About",
+            "url": "/about",
+            "description": "Learn about our mission and team"
+          },
+          {
+            "label": "Careers",
+            "url": "/careers",
+            "description": "Join our growing team"
+          },
+          {
+            "label": "Awards",
+            "url": "/awards",
+            "description": "Recognition and achievements"
+          }
+        ]
+      }
+    },
+    {
+      "simple_link": {
+        "label": "Contact",
+        "url": "/contact",
+        "is_external": false
+      }
+    }
+  ],
+  "cta_buttons": {
+    "primary_cta": {
+      "text": "Start Free Trial",
+      "url": "/signup"
+    },
+    "secondary_cta": {
+      "text": "Sign In",
+      "url": "/signin"
+    }
+  },
+  "locale": "en-us",
+  "tags": ["navigation", "menu"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

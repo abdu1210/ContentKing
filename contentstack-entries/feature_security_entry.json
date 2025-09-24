@@ -1,0 +1,14 @@
+{
+  "title": "Enterprise Security Feature",
+  "uid": "feature_security",
+  "feature_title": "Enterprise Security",
+  "feature_description": "Bank-level security with SOC 2 compliance, encryption at rest, and advanced access controls.",
+  "feature_icon": "Shield",
+  "feature_order": 2,
+  "feature_category": "home_features",
+  "locale": "en-us",
+  "tags": ["feature", "home", "security"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

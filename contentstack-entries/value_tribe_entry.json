@@ -1,0 +1,13 @@
+{
+  "title": "A Connected Tribe Value",
+  "uid": "value_tribe",
+  "value_title": "A Connected Tribe",
+  "value_description": "We're more than colleagues. We're a tribe.",
+  "value_icon": "Users",
+  "value_order": 1,
+  "locale": "en-us",
+  "tags": ["value", "about", "tribe"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

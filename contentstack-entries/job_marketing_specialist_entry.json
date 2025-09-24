@@ -1,0 +1,20 @@
+{
+  "title": "Digital Marketing Specialist",
+  "uid": "job_marketing_specialist",
+  "job_title": "Digital Marketing Specialist",
+  "department": "Marketing",
+  "location": "Austin, TX / Remote",
+  "job_type": "Full-time",
+  "experience_level": "Entry to Mid",
+  "job_description": "Drive growth through digital marketing campaigns and content strategy. You'll manage social media presence, create compelling content, run advertising campaigns, and analyze marketing performance. This role is perfect for someone passionate about B2B marketing in the tech space.",
+  "requirements": "2+ years digital marketing experience, Content creation skills, Social media management, Google Analytics and advertising platforms, Email marketing tools, SEO knowledge, Creative writing abilities",
+  "benefits": "Competitive salary, Performance bonuses, Health benefits, Flexible work arrangements, Marketing conference attendance, Creative project freedom",
+  "salary_range": "$60k - $85k",
+  "application_url": "/apply/marketing-specialist",
+  "job_order": 4,
+  "locale": "en-us",
+  "tags": ["marketing", "digital", "content", "growth"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

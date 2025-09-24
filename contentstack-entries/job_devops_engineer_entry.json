@@ -1,0 +1,20 @@
+{
+  "title": "DevOps Engineer - Infrastructure",
+  "uid": "job_devops_engineer",
+  "job_title": "DevOps Engineer",
+  "department": "Engineering",
+  "location": "Remote",
+  "job_type": "Full-time",
+  "experience_level": "Mid",
+  "job_description": "Help scale our platform infrastructure to support millions of content operations. You'll work with cloud technologies, automation tools, and monitoring systems to ensure our platform runs smoothly and efficiently. This role involves both maintaining existing systems and architecting new solutions for growth.",
+  "requirements": "AWS/GCP/Azure experience, Docker and Kubernetes, CI/CD pipeline development, Infrastructure as Code (Terraform), Monitoring and logging tools, Linux system administration, Scripting languages (Python, Bash)",
+  "benefits": "Competitive salary, Stock options, Health insurance, 401k matching, Remote-first culture, Learning stipend, Latest hardware provided",
+  "salary_range": "$100k - $130k",
+  "application_url": "/apply/devops-engineer",
+  "job_order": 3,
+  "locale": "en-us",
+  "tags": ["engineering", "devops", "infrastructure", "cloud"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

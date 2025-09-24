@@ -1,0 +1,14 @@
+{
+  "title": "Agents & Automations Product",
+  "uid": "product_agents",
+  "product_title": "Agents & Automations",
+  "product_description": "Intelligent agents that combine reasoning, context, and tools to accelerate work.",
+  "product_icon": "Users",
+  "product_features": "Workflow Automation\nContent Generation\nSmart Routing\nTask Intelligence",
+  "product_order": 4,
+  "locale": "en-us",
+  "tags": ["product", "features", "automation"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

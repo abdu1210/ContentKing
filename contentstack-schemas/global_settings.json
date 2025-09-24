@@ -1,0 +1,85 @@
+{
+    "title": "Global Settings",
+    "uid": "global_settings",
+    "description": "Global site settings and branding",
+    "schema": [
+      {
+        "display_name": "Site Title",
+        "uid": "site_title",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Main site title for branding",
+          "default_value": "Content King"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Site Logo",
+        "uid": "site_logo",
+        "data_type": "file",
+        "field_metadata": {
+          "description": "Site logo image"
+        },
+        "mandatory": false,
+        "unique": false
+      },
+      {
+        "display_name": "Site Tagline",
+        "uid": "site_tagline",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Site tagline or slogan",
+          "default_value": "The Future of Content Management"
+        },
+        "mandatory": false,
+        "unique": false
+      },
+      {
+        "display_name": "Contact Email",
+        "uid": "contact_email",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Primary contact email"
+        },
+        "mandatory": false,
+        "unique": false
+      },
+      {
+        "display_name": "Social Media Links",
+        "uid": "social_links",
+        "data_type": "group",
+        "field_metadata": {
+          "description": "Social media platform links"
+        },
+        "schema": [
+          {
+            "display_name": "Twitter URL",
+            "uid": "twitter_url",
+            "data_type": "text",
+            "mandatory": false
+          },
+          {
+            "display_name": "LinkedIn URL",
+            "uid": "linkedin_url",
+            "data_type": "text",
+            "mandatory": false
+          },
+          {
+            "display_name": "GitHub URL",
+            "uid": "github_url",
+            "data_type": "text",
+            "mandatory": false
+          }
+        ],
+        "mandatory": false,
+        "unique": false
+      }
+    ],
+    "options": {
+      "is_page": false,
+      "singleton": true,
+      "title": "site_title",
+      "sub_title": ["site_tagline"]
+    }
+  }

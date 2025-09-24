@@ -1,0 +1,66 @@
+{
+  "title": "Role Card",
+    "uid": "role_card",
+    "description": "Role-based benefit cards for Features page",
+    "schema": [
+      {
+        "display_name": "Role Title",
+        "uid": "role_title",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Role name (e.g., Developer & IT)"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Role Description",
+        "uid": "role_description",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Role description",
+          "multiline": true
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Role Icon",
+        "uid": "role_icon",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Lucide icon name (Code, Users, Brain, Settings, BarChart3, Shield)",
+          "default_value": "Code"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Role Benefits",
+        "uid": "role_benefits",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Role-specific benefits (one per line)",
+          "multiline": true
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Role Order",
+        "uid": "role_order",
+        "data_type": "number",
+        "field_metadata": {
+          "description": "Display order (1, 2, 3, etc.)"
+        },
+        "mandatory": true,
+        "unique": false
+      }
+    ],
+    "options": {
+      "is_page": false,
+      "singleton": false,
+      "title": "role_title",
+      "sub_title": ["role_order"]
+    }
+}

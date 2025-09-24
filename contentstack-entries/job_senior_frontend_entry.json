@@ -1,0 +1,20 @@
+{
+  "title": "Senior Frontend Developer - React",
+  "uid": "job_senior_frontend",
+  "job_title": "Senior Frontend Developer",
+  "department": "Engineering",
+  "location": "Remote / Austin, TX",
+  "job_type": "Full-time",
+  "experience_level": "Senior",
+  "job_description": "Join our engineering team to build the next generation of content management tools. You'll work on cutting-edge React applications, develop innovative user interfaces, and collaborate with a talented team of developers and designers. This role offers the opportunity to shape the future of digital content experiences.",
+  "requirements": "5+ years React experience, TypeScript proficiency, Modern frontend tooling (Vite, Webpack), API integration experience, Git version control, Agile development experience",
+  "benefits": "Competitive salary, Health/dental/vision insurance, 401k with matching, Flexible PTO, Remote work options, Professional development budget, Modern equipment provided",
+  "salary_range": "$120k - $160k",
+  "application_url": "/apply/senior-frontend-developer",
+  "job_order": 1,
+  "locale": "en-us",
+  "tags": ["engineering", "frontend", "react", "senior"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

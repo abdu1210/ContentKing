@@ -1,0 +1,14 @@
+{
+  "title": "Developer First Feature",
+  "uid": "feature_developer",
+  "feature_title": "Developer First",
+  "feature_description": "Rich APIs, webhooks, and SDKs for every major platform and programming language.",
+  "feature_icon": "Code",
+  "feature_order": 4,
+  "feature_category": "home_features",
+  "locale": "en-us",
+  "tags": ["feature", "home", "developer"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

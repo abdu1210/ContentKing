@@ -1,0 +1,18 @@
+{
+  "title": "Nishant Patel - CTO",
+  "uid": "team_nishant",
+  "member_name": "Nishant Patel",
+  "member_role": "CTO",
+  "member_department": "Technology",
+  "member_bio": "",
+  "member_order": 2,
+  "social_links": {
+    "linkedin_url": "",
+    "twitter_url": ""
+  },
+  "locale": "en-us",
+  "tags": ["team", "about", "technology"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

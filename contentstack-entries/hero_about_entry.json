@@ -1,0 +1,24 @@
+{
+  "title": "About Hero Section",
+  "uid": "hero_about",
+  "hero_title": "One team, one dream",
+  "hero_subtitle": "",
+  "hero_description": "Together at Content King, we're redefining what's possible in the digital space. Join us and do the best work of your career.",
+  "page_slug": "about",
+  "primary_cta": {
+    "text": "Current Openings",
+    "url": "/careers",
+    "is_external": false
+  },
+  "secondary_cta": {
+    "text": "",
+    "url": "",
+    "is_external": false
+  },
+  "background_style": "gradient_primary",
+  "locale": "en-us",
+  "tags": ["about", "hero"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

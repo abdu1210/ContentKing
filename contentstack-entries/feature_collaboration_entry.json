@@ -1,0 +1,14 @@
+{
+  "title": "Team Collaboration Feature",
+  "uid": "feature_collaboration",
+  "feature_title": "Team Collaboration",
+  "feature_description": "Advanced workflows, approval processes, and role-based permissions for seamless teamwork.",
+  "feature_icon": "Users",
+  "feature_order": 5,
+  "feature_category": "home_features",
+  "locale": "en-us",
+  "tags": ["feature", "home", "collaboration"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "title": "Statistic",
+    "uid": "statistic",
+    "description": "Statistics and metrics for stats sections",
+    "schema": [
+      {
+        "display_name": "Stat Label",
+        "uid": "stat_label",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Statistic label/title"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Stat Value",
+        "uid": "stat_value",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Statistic number (e.g., 99.90, 10, 500)"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Stat Suffix",
+        "uid": "stat_suffix",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Suffix for the statistic (%, M+, +, /7)"
+        },
+        "mandatory": false,
+        "unique": false
+      },
+      {
+        "display_name": "Stat Description",
+        "uid": "stat_description",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Description explaining the statistic"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Stat Order",
+        "uid": "stat_order",
+        "data_type": "number",
+        "field_metadata": {
+          "description": "Display order (1, 2, 3, etc.)"
+        },
+        "mandatory": true,
+        "unique": false
+      },
+      {
+        "display_name": "Stat Category",
+        "uid": "stat_category",
+        "data_type": "text",
+        "field_metadata": {
+          "description": "Category (home_stats, features_benefits, about_metrics)",
+          "default_value": "home_stats"
+        },
+        "mandatory": true,
+        "unique": false
+      }
+    ],
+    "options": {
+      "is_page": false,
+      "singleton": false,
+      "title": "stat_label",
+      "sub_title": ["stat_value", "stat_suffix"]
+    }
+}

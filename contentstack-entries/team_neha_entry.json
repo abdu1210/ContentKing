@@ -1,0 +1,18 @@
+{
+  "title": "Neha Sampat - CEO",
+  "uid": "team_neha",
+  "member_name": "Neha Sampat",
+  "member_role": "CEO",
+  "member_department": "Leadership",
+  "member_bio": "",
+  "member_order": 1,
+  "social_links": {
+    "linkedin_url": "",
+    "twitter_url": ""
+  },
+  "locale": "en-us",
+  "tags": ["team", "about", "leadership"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

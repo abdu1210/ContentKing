@@ -1,0 +1,15 @@
+{
+  "title": "API Requests Stat",
+  "uid": "stat_requests",
+  "stat_label": "API Requests Served",
+  "stat_value": "10",
+  "stat_suffix": "M+",
+  "stat_description": "Handling massive scale with reliability",
+  "stat_order": 2,
+  "stat_category": "home_stats",
+  "locale": "en-us",
+  "tags": ["stat", "home", "requests"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

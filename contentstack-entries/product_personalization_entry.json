@@ -1,0 +1,14 @@
+{
+  "title": "Omnichannel Personalization Product",
+  "uid": "product_personalization",
+  "product_title": "Omnichannel Personalization",
+  "product_description": "Deliver personalized experiences across every channel and touchpoint.",
+  "product_icon": "Brain",
+  "product_features": "Dynamic Content\nA/B Testing\nAudience Targeting\nReal-time Optimization",
+  "product_order": 3,
+  "locale": "en-us",
+  "tags": ["product", "features", "personalization"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

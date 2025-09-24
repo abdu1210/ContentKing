@@ -1,0 +1,15 @@
+{
+  "title": "Development Costs Reduction Stat",
+  "uid": "stat_dev_costs",
+  "stat_label": "Reduction in development costs",
+  "stat_value": "50",
+  "stat_suffix": "%",
+  "stat_description": "Reduction in development costs",
+  "stat_order": 3,
+  "stat_category": "features_benefits",
+  "locale": "en-us",
+  "tags": ["stat", "features", "costs"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

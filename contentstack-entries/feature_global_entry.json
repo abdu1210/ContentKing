@@ -1,0 +1,14 @@
+{
+  "title": "Global Scale Feature",
+  "uid": "feature_global",
+  "feature_title": "Global Scale",
+  "feature_description": "Built for global deployment with multi-region support and automatic scaling.",
+  "feature_icon": "Globe",
+  "feature_order": 3,
+  "feature_category": "home_features",
+  "locale": "en-us",
+  "tags": ["feature", "home", "scale"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}

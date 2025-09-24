@@ -1,0 +1,15 @@
+{
+  "title": "Expert Support Stat",
+  "uid": "stat_support",
+  "stat_label": "Expert Support",
+  "stat_value": "24",
+  "stat_suffix": "/7",
+  "stat_description": "Always here when you need us most",
+  "stat_order": 4,
+  "stat_category": "home_stats",
+  "locale": "en-us",
+  "tags": ["stat", "home", "support"],
+  "_workflow": {
+    "uid": "publish"
+  }
+}
