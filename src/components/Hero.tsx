@@ -94,7 +94,10 @@ const Hero = ({ pageSlug }: HeroProps) => {
         {isCenteredLayout ? (
           // Centered layout for Features page
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 
+              className="text-5xl lg:text-6xl font-bold leading-tight mb-6"
+              data-cslp={heroContent ? `${heroContent.uid}.hero_title` : undefined}
+            >
               {heroData.hero_title.split(' ').slice(0, -2).join(' ')}
               <span className={`block bg-gradient-to-r ${
                 heroData.background_style === 'solid_background' 
