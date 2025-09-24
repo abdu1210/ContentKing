@@ -1,29 +1,18 @@
 import ContentstackLivePreview from "@contentstack/live-preview-utils";
-import Contentstack from 'contentstack';
+import { contentstackClient } from './contentstack';
 
-// Create the Stack configuration object that Live Preview SDK expects
-const Stack = Contentstack.Stack({
-  api_key: "blt1167fc5d742e4412",
-  delivery_token: import.meta.env.VITE_CONTENTSTACK_DELIVERY_TOKEN,
-  environment: "poc",
-  region: Contentstack.Region.US,
-  live_preview: {
-    preview_token: import.meta.env.VITE_CONTENTSTACK_PREVIEW_TOKEN,
-    enable: true,
-    host: 'rest-preview.contentstack.com'
-  }
-});
+// Use the existing configured client for Live Preview
 
 ContentstackLivePreview.init({
   enable: true,
   ssr: false,
-  stackSdk: Stack,
+  stackSdk: contentstackClient,
 
   // Recommended: Enables Edit Tags
   editButton: { enable: true },
   stackDetails: {
-    apiKey: "blt1167fc5d742e4412",
-    environment: "poc",
+    apiKey: import.meta.env.VITE_CONTENTSTACK_API_KEY,
+    environment: import.meta.env.VITE_CONTENTSTACK_ENVIRONMENT,
     branch: "main",
   },
   clientUrlParams: {
