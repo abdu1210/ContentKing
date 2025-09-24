@@ -6,18 +6,17 @@ import { onEntryChange } from "@/lib/livePreview";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const Footer = () => {
-  const { data: footerContent, isLoading: footerLoading } = useFooter();
-  const { data: globalSettings, isLoading: settingsLoading } = useGlobalSettings();
-  const [data, setData] = React.useState({});
+  const { data: footerContent, isLoading: footerLoading, refetch: refetchFooter } = useFooter();
+  const { data: globalSettings, isLoading: settingsLoading, refetch: refetchSettings } = useGlobalSettings();
 
-  const updateData = () => {
-    const fetchedData = footerContent || {};
-    setData(fetchedData);
-  };
-
+  // CSR Live Preview: Listen for entry changes and refetch data
   React.useEffect(() => {
-    onEntryChange(updateData);
-  }, []);
+    onEntryChange(() => {
+      console.log('🔄 Footer: Entry changed, refetching data...');
+      refetchFooter();
+      refetchSettings();
+    });
+  }, [refetchFooter, refetchSettings]);
 
   // Loading state
   if (footerLoading || settingsLoading) {

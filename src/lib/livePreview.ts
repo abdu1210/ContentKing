@@ -1,11 +1,24 @@
 import ContentstackLivePreview from "@contentstack/live-preview-utils";
-import { fetchPreviewData, contentstackClient } from './contentstack';
+import Contentstack from 'contentstack';
 
-// Initialize Live Preview for Preview Service (without stackSdk for now)
+// Create Stack instance specifically for Live Preview (requires the old SDK)
+const Stack = Contentstack.Stack({
+  api_key: import.meta.env.VITE_CONTENTSTACK_API_KEY,
+  delivery_token: import.meta.env.VITE_CONTENTSTACK_DELIVERY_TOKEN,
+  environment: import.meta.env.VITE_CONTENTSTACK_ENVIRONMENT,
+  region: Contentstack.Region.US,
+  live_preview: {
+    preview_token: import.meta.env.VITE_CONTENTSTACK_PREVIEW_TOKEN,
+    enable: true,
+    host: 'rest-preview.contentstack.com'
+  }
+});
+
 ContentstackLivePreview.init({
   enable: true,
   ssr: false,
-  
+  stackSdk: Stack,
+
   // Recommended: Enables Edit Tags
   editButton: { enable: true },
   stackDetails: {
@@ -20,14 +33,12 @@ ContentstackLivePreview.init({
   },
 });
 
-// Enhanced onEntryChange that uses Preview Service
-export const onEntryChange = (callback: () => void) => {
-  return ContentstackLivePreview.onEntryChange(callback);
-};
+console.log("🔄 Live Preview initialized with stackSdk");
 
-// Function to get live preview hash from URL or ContentstackLivePreview
-export const getLivePreviewHash = () => {
-  // Try to get hash from URL parameters first
+// Function to get Live Preview hash from URL
+export const getLivePreviewHash = (): string | null => {
+  if (typeof window === 'undefined') return null;
+  
   const urlParams = new URLSearchParams(window.location.search);
   const hash = urlParams.get('live_preview') || urlParams.get('preview_hash');
   
@@ -36,23 +47,9 @@ export const getLivePreviewHash = () => {
     return hash;
   }
   
-  // Fallback: Try to get from ContentstackLivePreview if available
-  try {
-    // @ts-ignore - accessing internal API
-    const previewHash = ContentstackLivePreview?.previewHash || window?.contentstack_live_preview?.hash;
-    if (previewHash) {
-      console.log('🔍 Live Preview hash from SDK:', previewHash);
-      return previewHash;
-    }
-  } catch (e) {
-    // Silent fail
-  }
-  
-  console.log('📡 No Live Preview hash found, using regular CDN');
+  console.log('📡 No Live Preview hash found - using published content');
   return null;
 };
 
-console.log("🔄 Live Preview initialized with Preview Service support (testing without stackSdk)");
-
-// Export fetchPreviewData for components to use
-export { fetchPreviewData };
+// Enhanced onEntryChange for CSR
+export const onEntryChange = ContentstackLivePreview.onEntryChange;

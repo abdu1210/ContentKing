@@ -1,7 +1,9 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useHeroSectionBySlug } from "@/hooks/useContentstack";
+import { onEntryChange } from "@/lib/livePreview";
 import { Skeleton } from "@/components/ui/skeleton";
 import heroImage from "@/assets/hero-image.webp";
 
@@ -10,7 +12,15 @@ interface HeroProps {
 }
 
 const Hero = ({ pageSlug }: HeroProps) => {
-  const { data: heroContent, isLoading: loading, error } = useHeroSectionBySlug(pageSlug);
+  const { data: heroContent, isLoading: loading, error, refetch } = useHeroSectionBySlug(pageSlug);
+
+  // CSR Live Preview: Listen for entry changes and refetch data
+  React.useEffect(() => {
+    onEntryChange(() => {
+      console.log('🔄 Hero: Entry changed, refetching data...');
+      refetch();
+    });
+  }, [refetch]);
   
   // Debug logging
   console.log(`🦸 Hero Component Debug for ${pageSlug}:`, { 
@@ -94,10 +104,7 @@ const Hero = ({ pageSlug }: HeroProps) => {
         {isCenteredLayout ? (
           // Centered layout for Features page
           <div className="text-center max-w-4xl mx-auto">
-            <h1 
-              className="text-5xl lg:text-6xl font-bold leading-tight mb-6"
-              data-cslp={heroContent ? `${heroContent.uid}.hero_title` : undefined}
-            >
+            <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
               {heroData.hero_title.split(' ').slice(0, -2).join(' ')}
               <span className={`block bg-gradient-to-r ${
                 heroData.background_style === 'solid_background' 
