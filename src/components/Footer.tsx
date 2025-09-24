@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Crown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useFooter, useGlobalSettings } from "@/hooks/useContentstack";
-import { onEntryChange } from "@/lib/livePreview";
 import { Skeleton } from "@/components/ui/skeleton";
+import { onEntryChange } from "@/lib/livePreview";
 
 const Footer = () => {
   const { data: footerContent, isLoading: footerLoading, refetch: refetchFooter } = useFooter();
-  const { data: globalSettings, isLoading: settingsLoading, refetch: refetchSettings } = useGlobalSettings();
+  const { data: globalSettings, isLoading: settingsLoading, refetch: refetchGlobalSettings } = useGlobalSettings();
 
-  // CSR Live Preview: Listen for entry changes and refetch data
-  React.useEffect(() => {
-    onEntryChange(() => {
-      console.log('🔄 Footer: Entry changed, refetching data...');
+  // Set up Live Preview onEntryChange
+  useEffect(() => {
+    const updateData = () => {
       refetchFooter();
-      refetchSettings();
-    });
-  }, [refetchFooter, refetchSettings]);
+      refetchGlobalSettings();
+    };
+
+    onEntryChange(updateData);
+  }, [refetchFooter, refetchGlobalSettings]);
 
   // Loading state
   if (footerLoading || settingsLoading) {

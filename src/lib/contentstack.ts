@@ -1,4 +1,5 @@
 import contentstack from '@contentstack/delivery-sdk';
+import Contentstack from 'contentstack'; // Add old SDK for Live Preview
 import ContentstackLivePreview from '@contentstack/live-preview-utils';
 
 // Contentstack configuration
@@ -27,18 +28,33 @@ if (!stackConfig.apiKey || !stackConfig.deliveryToken || !stackConfig.environmen
   }
 }
 
-// Create Contentstack client with Preview Service configuration
-export const contentstackClient = contentstack.stack({
-  apiKey: stackConfig.apiKey,
-  deliveryToken: stackConfig.deliveryToken,
-  environment: stackConfig.environment,
-  region: stackConfig.region,
+// Create Contentstack client
+const Stack = contentstack.stack({
+  apiKey: 'blt1167fc5d742e4412',
+  deliveryToken: 'cs2c10b5e47fde689b88e5c6f3',
+  environment: 'poc',
+  live_preview: {
+    enable: true,
+    preview_token: 'csd2476a5b61b1e5f28323ca4c',
+    host: 'rest-preview.contentstack.com',
+  }
+});
+
+export const contentstackClient = Stack;
+
+// Migrate to New Preview Service (recommended)
+const LivePreviewStack = Contentstack.Stack({
+  api_key: 'blt1167fc5d742e4412',
+  delivery_token: 'cs2c10b5e47fde689b88e5c6f3',
+  environment: 'poc',
   live_preview: {
     enable: true,
     host: "rest-preview.contentstack.com",
-    preview_token: stackConfig.previewToken
+    preview_token: "csd2476a5b61b1e5f28323ca4c"
   }
 });
+
+export { LivePreviewStack };
 
 // Content type identifiers (matching our created schemas)
 export const CONTENT_TYPES = {
@@ -54,47 +70,6 @@ export const CONTENT_TYPES = {
   JOB_OPENING: 'job_opening',
   FOOTER: 'footer',
 } as const;
-
-// Preview Service constants
-const CONTENTSTACK_CDN_URL = "cdn.contentstack.io";
-const PREVIEW_HOST_NAME = "rest-preview.contentstack.com";
-
-// Function to get headers for API requests
-function getHeaders() {
-  const headers = new Headers();
-  headers.append("Content-Type", "application/json");
-  headers.append("access_token", stackConfig.deliveryToken);
-  headers.append("api_key", stackConfig.apiKey);
-  return headers;
-}
-
-// Preview Service compatible fetch function
-export const fetchPreviewData = async (ctUID: string, entryUID: string, hash: string | null = null) => {
-  const contentstackURL = new URL(
-    `https://${CONTENTSTACK_CDN_URL}/v3/content_types/${ctUID}/entries/${entryUID}?environment=${stackConfig.environment}`
-  );
-  
-  const headers = getHeaders();
-  
-  if (hash && stackConfig.previewToken) {
-    // Use Preview Service
-    headers.append("live_preview", hash);
-    headers.append("preview_token", stackConfig.previewToken);
-    contentstackURL.hostname = PREVIEW_HOST_NAME;
-    console.log('🔄 Using Preview Service with hash:', hash);
-  } else {
-    // Use regular CDN
-    contentstackURL.hostname = CONTENTSTACK_CDN_URL;
-    console.log('📡 Using regular CDN');
-  }
-  
-  const res = await fetch(contentstackURL.toString(), {
-    method: "GET",
-    headers: headers,
-  });
-  
-  return res.json();
-};
 
 // Debug function to test basic connectivity
 export const testContentstackConnection = async () => {

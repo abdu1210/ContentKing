@@ -1,11 +1,11 @@
-import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useHeroSectionBySlug } from "@/hooks/useContentstack";
-import { onEntryChange } from "@/lib/livePreview";
 import { Skeleton } from "@/components/ui/skeleton";
 import heroImage from "@/assets/hero-image.webp";
+import { useEffect } from "react";
+import { onEntryChange } from "@/lib/livePreview";
 
 interface HeroProps {
   pageSlug: string;
@@ -13,13 +13,14 @@ interface HeroProps {
 
 const Hero = ({ pageSlug }: HeroProps) => {
   const { data: heroContent, isLoading: loading, error, refetch } = useHeroSectionBySlug(pageSlug);
-
-  // CSR Live Preview: Listen for entry changes and refetch data
-  React.useEffect(() => {
-    onEntryChange(() => {
-      console.log('🔄 Hero: Entry changed, refetching data...');
+  
+  // Set up Live Preview onEntryChange
+  useEffect(() => {
+    const updateData = () => {
       refetch();
-    });
+    };
+
+    onEntryChange(updateData);
   }, [refetch]);
   
   // Debug logging
