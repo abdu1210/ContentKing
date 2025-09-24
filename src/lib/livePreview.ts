@@ -1,6 +1,7 @@
 import ContentstackLivePreview from "@contentstack/live-preview-utils";
+import { fetchPreviewData } from './contentstack';
 
-// Initialize Live Preview without stackSdk to test if the service recognition is the issue
+// Initialize Live Preview for Preview Service
 ContentstackLivePreview.init({
   enable: true,
   ssr: false,
@@ -19,6 +20,39 @@ ContentstackLivePreview.init({
   },
 });
 
-console.log("🔄 Live Preview initialized without stackSdk for testing");
+// Enhanced onEntryChange that uses Preview Service
+export const onEntryChange = (callback: () => void) => {
+  return ContentstackLivePreview.onEntryChange(callback);
+};
 
-export const onEntryChange = ContentstackLivePreview.onEntryChange;
+// Function to get live preview hash from URL or ContentstackLivePreview
+export const getLivePreviewHash = () => {
+  // Try to get hash from URL parameters first
+  const urlParams = new URLSearchParams(window.location.search);
+  const hash = urlParams.get('live_preview') || urlParams.get('preview_hash');
+  
+  if (hash) {
+    console.log('🔍 Live Preview hash found:', hash);
+    return hash;
+  }
+  
+  // Fallback: Try to get from ContentstackLivePreview if available
+  try {
+    // @ts-ignore - accessing internal API
+    const previewHash = ContentstackLivePreview?.previewHash || window?.contentstack_live_preview?.hash;
+    if (previewHash) {
+      console.log('🔍 Live Preview hash from SDK:', previewHash);
+      return previewHash;
+    }
+  } catch (e) {
+    // Silent fail
+  }
+  
+  console.log('📡 No Live Preview hash found, using regular CDN');
+  return null;
+};
+
+console.log("🔄 Live Preview initialized with Preview Service support");
+
+// Export fetchPreviewData for components to use
+export { fetchPreviewData };

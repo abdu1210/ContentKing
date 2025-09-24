@@ -55,6 +55,47 @@ export const CONTENT_TYPES = {
   FOOTER: 'footer',
 } as const;
 
+// Preview Service constants
+const CONTENTSTACK_CDN_URL = "cdn.contentstack.io";
+const PREVIEW_HOST_NAME = "rest-preview.contentstack.com";
+
+// Function to get headers for API requests
+function getHeaders() {
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  headers.append("access_token", stackConfig.deliveryToken);
+  headers.append("api_key", stackConfig.apiKey);
+  return headers;
+}
+
+// Preview Service compatible fetch function
+export const fetchPreviewData = async (ctUID: string, entryUID: string, hash: string | null = null) => {
+  const contentstackURL = new URL(
+    `https://${CONTENTSTACK_CDN_URL}/v3/content_types/${ctUID}/entries/${entryUID}?environment=${stackConfig.environment}`
+  );
+  
+  const headers = getHeaders();
+  
+  if (hash && stackConfig.previewToken) {
+    // Use Preview Service
+    headers.append("live_preview", hash);
+    headers.append("preview_token", stackConfig.previewToken);
+    contentstackURL.hostname = PREVIEW_HOST_NAME;
+    console.log('🔄 Using Preview Service with hash:', hash);
+  } else {
+    // Use regular CDN
+    contentstackURL.hostname = CONTENTSTACK_CDN_URL;
+    console.log('📡 Using regular CDN');
+  }
+  
+  const res = await fetch(contentstackURL.toString(), {
+    method: "GET",
+    headers: headers,
+  });
+  
+  return res.json();
+};
+
 // Debug function to test basic connectivity
 export const testContentstackConnection = async () => {
   try {
