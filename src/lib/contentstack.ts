@@ -27,16 +27,16 @@ if (!stackConfig.apiKey || !stackConfig.deliveryToken || !stackConfig.environmen
   }
 }
 
-// Create Contentstack client
+// Create Contentstack client with Preview Service configuration
 export const contentstackClient = contentstack.stack({
   apiKey: stackConfig.apiKey,
   deliveryToken: stackConfig.deliveryToken,
   environment: stackConfig.environment,
   region: stackConfig.region,
   live_preview: {
-    preview_token: stackConfig.previewToken,
     enable: true,
-    host: 'rest-preview.contentstack.com'
+    host: "rest-preview.contentstack.com",
+    preview_token: stackConfig.previewToken
   }
 });
 

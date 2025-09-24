@@ -1,7 +1,7 @@
 import ContentstackLivePreview from "@contentstack/live-preview-utils";
-import { fetchPreviewData } from './contentstack';
+import { fetchPreviewData, contentstackClient } from './contentstack';
 
-// Initialize Live Preview for Preview Service
+// Initialize Live Preview for Preview Service (without stackSdk for now)
 ContentstackLivePreview.init({
   enable: true,
   ssr: false,
@@ -52,7 +52,7 @@ export const getLivePreviewHash = () => {
   return null;
 };
 
-console.log("🔄 Live Preview initialized with Preview Service support");
+console.log("🔄 Live Preview initialized with Preview Service support (testing without stackSdk)");
 
 // Export fetchPreviewData for components to use
 export { fetchPreviewData };
