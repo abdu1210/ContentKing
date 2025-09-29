@@ -1,73 +1,118 @@
-# Welcome to your Lovable project
+# ContentKing - Content Management Studio
 
-## Project info
+A modern content management application built with React, TypeScript, and Contentstack CMS. ContentKing provides a beautiful and intuitive interface for managing your content with real-time preview capabilities.
 
-**URL**: https://lovable.dev/projects/b0ce05f0-2d43-4c36-888d-9ee8ad6e973d
+## Features
 
-## How can I edit this code?
+- **Contentstack Integration**: Seamless integration with Contentstack CMS
+- **Live Preview**: Real-time content preview with Contentstack Live Preview SDK
+- **Modern UI**: Beautiful, responsive interface built with shadcn/ui components
+- **TypeScript**: Full type safety throughout the application
+- **Content Types**: Support for various content types including hero sections, features, team members, and more
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/b0ce05f0-2d43-4c36-888d-9ee8ad6e973d) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+To set up ContentKing locally, you'll need Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 Follow these steps:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Step 1: Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Step 2: Navigate to the project directory
+cd pixelpage-studio-main
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Step 3: Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Configure environment variables (see Configuration section below)
+cp .env.example .env.local
+# Edit .env.local with your Contentstack credentials
+
+# Step 5: Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Configuration
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Before running the application, you need to configure your Contentstack credentials. Create a `.env.local` file in the root directory with the following variables:
 
-**Use GitHub Codespaces**
+```env
+VITE_CONTENTSTACK_API_KEY=your_api_key_here
+VITE_CONTENTSTACK_DELIVERY_TOKEN=your_delivery_token_here
+VITE_CONTENTSTACK_ENVIRONMENT=your_environment_here
+VITE_CONTENTSTACK_REGION=us
+VITE_CONTENTSTACK_PREVIEW_TOKEN=your_preview_token_here
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Getting Contentstack Credentials
 
-## What technologies are used for this project?
+1. Log in to your [Contentstack account](https://app.contentstack.com/)
+2. Navigate to your stack
+3. Go to Settings > Tokens to get your API Key and Delivery Token
+4. Go to Settings > Environments to confirm your environment name
+5. For Live Preview, go to Settings > Live Preview to get your Preview Token
 
-This project is built with:
+## Technology Stack
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project is built with modern web technologies:
 
-## How can I deploy this project?
+### Frontend
+- **React 18** - Modern React with hooks and concurrent features
+- **TypeScript** - Full type safety and better developer experience
+- **Vite** - Fast build tool and development server
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Beautiful and accessible UI components
 
-Simply open [Lovable](https://lovable.dev/projects/b0ce05f0-2d43-4c36-888d-9ee8ad6e973d) and click on Share -> Publish.
+### Content Management
+- **Contentstack** - Headless CMS for content management
+- **Contentstack Live Preview SDK** - Real-time content preview
+- **Contentstack Delivery SDK** - Content delivery and fetching
 
-## Can I connect a custom domain to my Lovable project?
+### Additional Libraries
+- **React Router** - Client-side routing
+- **React Query** - Data fetching and caching
+- **React Hook Form** - Form management
+- **Lucide React** - Beautiful icons
+- **Radix UI** - Accessible component primitives
 
-Yes, you can!
+## Available Scripts
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build for development
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Content Types
+
+ContentKing supports various content types configured in Contentstack:
+
+- **Global Settings** - Site-wide configuration
+- **Navigation** - Menu and navigation items
+- **Hero Sections** - Landing page hero content
+- **Feature Cards** - Product/service features
+- **Core Products** - Main product information
+- **Statistics** - Numerical data and metrics
+- **Role Cards** - Team roles and positions
+- **Value Cards** - Company values and principles
+- **Team Members** - Staff profiles
+- **Job Openings** - Career opportunities
+- **Footer** - Site footer content
+
+## Deployment
+
+This project can be deployed to any static hosting service:
+
+1. **Build the project**: `npm run build`
+2. **Deploy the `dist` folder** to your hosting service
+3. **Configure environment variables** on your hosting platform
+
+Popular hosting options:
+- [Vercel](https://vercel.com/)
+- [Netlify](https://netlify.com/)
+- [AWS S3 + CloudFront](https://aws.amazon.com/)
+- [GitHub Pages](https://pages.github.com/)
