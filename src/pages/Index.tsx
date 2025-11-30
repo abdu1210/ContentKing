@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
+import PersonalizedHero from "@/components/PersonalizedHero";
 import Features from "@/components/Features";
 import Stats from "@/components/Stats";
 import Footer from "@/components/Footer";
@@ -8,7 +8,11 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <Hero pageSlug="home" />
+      {/* Personalized Hero - Using Experience Short UID */}
+      <PersonalizedHero 
+        experienceId="1"
+        defaultEntryUid="blt3a267e8764bfc8fc"
+      />
       <Features 
         category="home_features"
         sectionTitle="Powerful Features for Modern Teams"

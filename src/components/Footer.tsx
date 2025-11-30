@@ -1,25 +1,31 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Crown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useFooter, useGlobalSettings } from "@/hooks/useContentstack";
 import { Skeleton } from "@/components/ui/skeleton";
 import { onEntryChange } from "@/lib/livePreview";
 
+const FOOTER_TYPE = 'footer';
+const SETTINGS_TYPE = 'global_settings';
+const LOCALE = 'en-us';
+
 const Footer = () => {
   const { data: footerContent, isLoading: footerLoading, refetch: refetchFooter } = useFooter();
   const { data: globalSettings, isLoading: settingsLoading, refetch: refetchGlobalSettings } = useGlobalSettings();
 
-  // Set up Live Preview onEntryChange
   useEffect(() => {
-    const updateData = () => {
+    onEntryChange(() => {
       refetchFooter();
       refetchGlobalSettings();
-    };
-
-    onEntryChange(updateData);
+    });
   }, [refetchFooter, refetchGlobalSettings]);
 
-  // Loading state
+  const footerCslp = (field: string) => 
+    footerContent?.[0]?.uid ? `${FOOTER_TYPE}.${footerContent[0].uid}.${LOCALE}.${field}` : undefined;
+  
+  const settingsCslp = (field: string) => 
+    globalSettings?.[0]?.uid ? `${SETTINGS_TYPE}.${globalSettings[0].uid}.${LOCALE}.${field}` : undefined;
+
   if (footerLoading || settingsLoading) {
     return (
       <footer className="bg-background border-t">
@@ -41,58 +47,20 @@ const Footer = () => {
               </div>
             ))}
           </div>
-          <hr className="my-8" />
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <Skeleton className="h-4 w-48" />
-            <div className="flex space-x-4 mt-4 md:mt-0">
-              {Array.from({ length: 3 }).map((_, index) => (
-                <Skeleton key={index} className="h-4 w-16" />
-              ))}
-            </div>
-          </div>
         </div>
       </footer>
     );
   }
 
-  // Fallback footer content if CMS data not available
   const defaultFooterContent = {
     footer_sections: {
-      company_section: {
-        title: "Company",
-        links: [
-          { label: "About", url: "/about" },
-          { label: "Careers", url: "/careers" },
-          { label: "Awards", url: "/awards" },
-          { label: "Contact", url: "/contact" }
-        ]
-      },
-      products_section: {
-        title: "Products",
-        links: [
-          { label: "Content Management", url: "/features" },
-          { label: "APIs & SDKs", url: "/features" },
-          { label: "Analytics", url: "/features" },
-          { label: "Security", url: "/features" }
-        ]
-      },
-      resources_section: {
-        title: "Resources",
-        links: [
-          { label: "Documentation", url: "https://docs.contentstack.com" },
-          { label: "Support", url: "/contact" },
-          { label: "Community", url: "https://community.contentstack.com" },
-          { label: "Blog", url: "https://blog.contentstack.com" }
-        ]
-      }
+      company_section: { title: "Company", links: [{ label: "About", url: "/about" }, { label: "Careers", url: "/careers" }] },
+      products_section: { title: "Products", links: [{ label: "Features", url: "/features" }] },
+      resources_section: { title: "Resources", links: [{ label: "Contact", url: "/contact" }] }
     },
     footer_bottom: {
       copyright_text: "© 2024 Content King. All rights reserved.",
-      legal_links: [
-        { label: "Privacy Policy", url: "/privacy" },
-        { label: "Terms of Service", url: "/terms" },
-        { label: "Cookie Policy", url: "/cookies" }
-      ]
+      legal_links: [{ label: "Privacy", url: "/privacy" }]
     }
   };
 
@@ -105,95 +73,57 @@ const Footer = () => {
     <footer className="bg-background border-t">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <Crown className="h-6 w-6 text-primary" />
-              <span className="font-bold text-lg">{siteTitle}</span>
+              <span className="font-bold text-lg" data-cslp={settingsCslp('site_title')}>{siteTitle}</span>
             </Link>
-            <p className="text-muted-foreground mb-4">
-              {siteTagline}
-            </p>
+            <p className="text-muted-foreground mb-4" data-cslp={settingsCslp('site_tagline')}>{siteTagline}</p>
             {globalSettingsData?.contact_email && (
               <p className="text-sm text-muted-foreground">
                 Contact us at{" "}
-                <a 
-                  href={`mailto:${globalSettingsData.contact_email}`}
-                  className="text-primary hover:underline"
-                >
+                <a href={`mailto:${globalSettingsData.contact_email}`} className="text-primary hover:underline" data-cslp={settingsCslp('contact_email')}>
                   {globalSettingsData.contact_email}
                 </a>
               </p>
             )}
           </div>
 
-          {/* Company Links */}
           <div>
-            <h3 className="font-semibold mb-4">{footerData.footer_sections.company_section.title}</h3>
+            <h3 className="font-semibold mb-4">{footerData.footer_sections?.company_section?.title}</h3>
             <ul className="space-y-2">
-              {footerData.footer_sections.company_section.links.map((link, index) => (
+              {footerData.footer_sections?.company_section?.links?.map((link, index) => (
                 <li key={index}>
-                  <Link 
-                    to={link.url} 
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  <Link to={link.url} className="text-muted-foreground hover:text-foreground transition-colors">{link.label}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Products Links */}
           <div>
-            <h3 className="font-semibold mb-4">{footerData.footer_sections.products_section.title}</h3>
+            <h3 className="font-semibold mb-4">{footerData.footer_sections?.products_section?.title}</h3>
             <ul className="space-y-2">
-              {footerData.footer_sections.products_section.links.map((link, index) => (
+              {footerData.footer_sections?.products_section?.links?.map((link, index) => (
                 <li key={index}>
-                  {link.url.startsWith('http') ? (
-                    <a 
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.label}
-                    </a>
+                  {link.url?.startsWith('http') ? (
+                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">{link.label}</a>
                   ) : (
-                    <Link 
-                      to={link.url} 
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.label}
-                    </Link>
+                    <Link to={link.url} className="text-muted-foreground hover:text-foreground transition-colors">{link.label}</Link>
                   )}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Resources Links */}
           <div>
-            <h3 className="font-semibold mb-4">{footerData.footer_sections.resources_section.title}</h3>
+            <h3 className="font-semibold mb-4">{footerData.footer_sections?.resources_section?.title}</h3>
             <ul className="space-y-2">
-              {footerData.footer_sections.resources_section.links.map((link, index) => (
+              {footerData.footer_sections?.resources_section?.links?.map((link, index) => (
                 <li key={index}>
-                  {link.url.startsWith('http') ? (
-                    <a 
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.label}
-                    </a>
+                  {link.url?.startsWith('http') ? (
+                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">{link.label}</a>
                   ) : (
-                    <Link 
-                      to={link.url} 
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.label}
-                    </Link>
+                    <Link to={link.url} className="text-muted-foreground hover:text-foreground transition-colors">{link.label}</Link>
                   )}
                 </li>
               ))}
@@ -203,18 +133,13 @@ const Footer = () => {
 
         <hr className="my-8" />
 
-        {/* Footer Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-muted-foreground text-sm">
-            {footerData.footer_bottom.copyright_text}
+          <p className="text-muted-foreground text-sm" data-cslp={footerCslp('footer_bottom.copyright_text')}>
+            {footerData.footer_bottom?.copyright_text}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            {footerData.footer_bottom.legal_links.map((link, index) => (
-              <Link 
-                key={index}
-                to={link.url} 
-                className="text-muted-foreground hover:text-foreground text-sm transition-colors"
-              >
+            {footerData.footer_bottom?.legal_links?.map((link, index) => (
+              <Link key={index} to={link.url} className="text-muted-foreground hover:text-foreground text-sm transition-colors">
                 {link.label}
               </Link>
             ))}

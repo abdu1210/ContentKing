@@ -7,7 +7,7 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "0.0.0.0",
-    port: 5000,
+    port: 3000,
     allowedHosts: ["*", ".replit.dev", ".sisko.replit.dev", "cabeedb3-6958-4035-ab7f-962b9298ff18-00-36udhvsexkye5.sisko.replit.dev"],
     headers: {
       "Access-Control-Allow-Origin": "*",

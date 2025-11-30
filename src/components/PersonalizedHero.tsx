@@ -1,25 +1,37 @@
+import { usePersonalize } from '@/hooks/usePersonalize';
+import { triggerEvent } from '@/lib/personalize';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useHeroSectionBySlug } from "@/hooks/useContentstack";
 import { Skeleton } from "@/components/ui/skeleton";
 import heroImage from "@/assets/hero-image.webp";
-import { useEffect } from "react";
-import { onEntryChange } from "@/lib/livePreview";
 
-const CONTENT_TYPE = 'hero_section_v2';
-const LOCALE = 'en-us';
-
-interface HeroProps {
-  pageSlug: string;
+interface PersonalizedHeroProps {
+  experienceId: string;
+  defaultEntryUid: string;
 }
 
-const Hero = ({ pageSlug }: HeroProps) => {
-  const { data: heroContent, isLoading: loading, refetch } = useHeroSectionBySlug(pageSlug);
-  
-  useEffect(() => {
-    onEntryChange(() => refetch());
-  }, [refetch]);
+const CONTENT_TYPE_UID = 'hero_section_v2';
+const LOCALE = 'en-us';
+
+const PersonalizedHero = ({ 
+  experienceId = 'homepage_hero_test',
+  defaultEntryUid = 'hero_home'
+}: PersonalizedHeroProps) => {
+  const { entry: heroContent, variant, loading } = usePersonalize(
+    experienceId,
+    CONTENT_TYPE_UID,
+    defaultEntryUid
+  );
+
+  const handleCTAClick = (ctaType: 'primary' | 'secondary') => {
+    triggerEvent('hero_cta_click', {
+      experience: experienceId,
+      variant: variant?.variant_short_id || 'default',
+      cta_type: ctaType,
+      cta_text: ctaType === 'primary' ? heroContent?.primary_cta?.text : heroContent?.secondary_cta?.text,
+    });
+  };
 
   if (loading) {
     return (
@@ -47,16 +59,13 @@ const Hero = ({ pageSlug }: HeroProps) => {
   const defaultHeroContent = {
     hero_title: "Build Digital Experiences That Scale Infinitely",
     hero_subtitle: "The Future of Content Management",
-    hero_description: "The headless CMS that empowers teams to create, manage, and deliver content across any platform.",
+    hero_description: "The headless CMS that empowers teams to create, manage, and deliver content across any platform with unmatched speed and flexibility.",
     primary_cta: { text: "Start Free Trial", url: "/signup", is_external: false },
     secondary_cta: { text: "Watch Demo", url: "#", is_external: true },
-    background_style: "gradient_primary",
-    layout_style: "",
-    hero_image: null as any
+    background_style: "gradient_primary"
   };
 
   const heroData = heroContent || defaultHeroContent;
-  const cslp = (field: string) => heroContent?.uid ? `${CONTENT_TYPE}.${heroContent.uid}.${LOCALE}.${field}` : undefined;
 
   const getBackgroundClass = () => {
     switch (heroData.background_style) {
@@ -68,11 +77,18 @@ const Hero = ({ pageSlug }: HeroProps) => {
 
   const textColorClass = heroData.background_style === 'solid_background' ? 'text-foreground' : 'text-white';
   const isCenteredLayout = heroData.layout_style === 'centered_text';
+  const cslp = (field: string) => heroData.uid ? `${CONTENT_TYPE_UID}.${heroData.uid}.${LOCALE}.${field}` : undefined;
 
   return (
     <section className={`${getBackgroundClass()} ${textColorClass} py-20 relative overflow-hidden`}>
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20"></div>
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/30 via-transparent to-transparent"></div>
+      
+      {import.meta.env.DEV && variant && (
+        <div className="absolute top-4 right-4 z-20 bg-black/80 text-white px-3 py-1 rounded text-xs font-mono">
+          Variant: {variant.variant_short_id || 'default'}
+        </div>
+      )}
       
       <div className="container mx-auto px-4 py-20 relative z-10">
         {isCenteredLayout ? (
@@ -95,12 +111,12 @@ const Hero = ({ pageSlug }: HeroProps) => {
               {heroData.primary_cta && (
                 <Button variant={heroData.background_style === 'solid_background' ? "default" : "hero-outline"} size="lg" className="group" asChild>
                   {heroData.primary_cta.is_external ? (
-                    <a href={heroData.primary_cta.url} target="_blank" rel="noopener noreferrer" data-cslp={cslp('primary_cta')}>
+                    <a href={heroData.primary_cta.url} target="_blank" rel="noopener noreferrer" onClick={() => handleCTAClick('primary')} data-cslp={cslp('primary_cta')}>
                       {heroData.primary_cta.text}
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </a>
                   ) : (
-                    <Link to={heroData.primary_cta.url} data-cslp={cslp('primary_cta')}>
+                    <Link to={heroData.primary_cta.url} onClick={() => handleCTAClick('primary')} data-cslp={cslp('primary_cta')}>
                       {heroData.primary_cta.text}
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Link>
@@ -110,12 +126,12 @@ const Hero = ({ pageSlug }: HeroProps) => {
               {heroData.secondary_cta?.text && (
                 <Button variant="ghost" size="lg" className={heroData.background_style === 'solid_background' ? 'border-border hover:bg-accent' : 'text-white border-white/20 hover:bg-white/10'} asChild>
                   {heroData.secondary_cta.is_external ? (
-                    <a href={heroData.secondary_cta.url} target="_blank" rel="noopener noreferrer" data-cslp={cslp('secondary_cta')}>
+                    <a href={heroData.secondary_cta.url} target="_blank" rel="noopener noreferrer" onClick={() => handleCTAClick('secondary')} data-cslp={cslp('secondary_cta')}>
                       <Play className="mr-2 h-5 w-5" />
                       {heroData.secondary_cta.text}
                     </a>
                   ) : (
-                    <Link to={heroData.secondary_cta.url} data-cslp={cslp('secondary_cta')}>
+                    <Link to={heroData.secondary_cta.url} onClick={() => handleCTAClick('secondary')} data-cslp={cslp('secondary_cta')}>
                       <Play className="mr-2 h-5 w-5" />
                       {heroData.secondary_cta.text}
                     </Link>
@@ -145,12 +161,12 @@ const Hero = ({ pageSlug }: HeroProps) => {
                 {heroData.primary_cta && (
                   <Button variant={heroData.background_style === 'solid_background' ? "default" : "hero-outline"} size="lg" className="group" asChild>
                     {heroData.primary_cta.is_external ? (
-                      <a href={heroData.primary_cta.url} target="_blank" rel="noopener noreferrer" data-cslp={cslp('primary_cta')}>
+                      <a href={heroData.primary_cta.url} target="_blank" rel="noopener noreferrer" onClick={() => handleCTAClick('primary')} data-cslp={cslp('primary_cta')}>
                         {heroData.primary_cta.text}
                         <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                       </a>
                     ) : (
-                      <Link to={heroData.primary_cta.url} data-cslp={cslp('primary_cta')}>
+                      <Link to={heroData.primary_cta.url} onClick={() => handleCTAClick('primary')} data-cslp={cslp('primary_cta')}>
                         {heroData.primary_cta.text}
                         <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                       </Link>
@@ -160,12 +176,12 @@ const Hero = ({ pageSlug }: HeroProps) => {
                 {heroData.secondary_cta?.text && (
                   <Button variant="ghost" size="lg" className={heroData.background_style === 'solid_background' ? 'border-border hover:bg-accent' : 'text-white border-white/20 hover:bg-white/10'} asChild>
                     {heroData.secondary_cta.is_external ? (
-                      <a href={heroData.secondary_cta.url} target="_blank" rel="noopener noreferrer" data-cslp={cslp('secondary_cta')}>
+                      <a href={heroData.secondary_cta.url} target="_blank" rel="noopener noreferrer" onClick={() => handleCTAClick('secondary')} data-cslp={cslp('secondary_cta')}>
                         <Play className="mr-2 h-5 w-5" />
                         {heroData.secondary_cta.text}
                       </a>
                     ) : (
-                      <Link to={heroData.secondary_cta.url} data-cslp={cslp('secondary_cta')}>
+                      <Link to={heroData.secondary_cta.url} onClick={() => handleCTAClick('secondary')} data-cslp={cslp('secondary_cta')}>
                         <Play className="mr-2 h-5 w-5" />
                         {heroData.secondary_cta.text}
                       </Link>
@@ -194,4 +210,4 @@ const Hero = ({ pageSlug }: HeroProps) => {
   );
 };
 
-export default Hero;
+export default PersonalizedHero;
